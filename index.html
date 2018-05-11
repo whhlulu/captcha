@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="theme-color" content="#000000">
+    <meta name = "format-detection" content = "telephone=no">
+    <title>React App</title>
+</head>
+<body>
+<script src="build/bundle.js"></script>
+<script>
+    var sid = "ZAzmjQABAAABY06P3U0AMNO-HVLtjdXZ5w-fpxFUlp8asrF16gOi8YnU1nfw_giAraluyCY34MHsw71XQOCGug";
+    if (!sid) {sid = "ZAzmjQABAAABY06P3U0AMNO-HVLtjdXZ5w-fpxFUlp8asrF16gOi8YnU1nfw_giAraluyCY34MHsw71XQOCGug";}
+    var option = {
+        sessionId: sid,
+        element: ".notice",
+        display: "embed",//popup
+        height: "45",
+        width: "100%",
+        language:"3",
+        clickBtnDes: "点击进入下一步",
+        closeBtn:{
+            display:false,
+        },
+        onSuccess: function(ret) {
+            // ret格式{”code”:0,”message”:””,”token”:””}
+            // 每次用户尝试验证成功会被调用
+//										alert(ret);
+        },
+        onLoad: function(data) {
+            //alert(data);
+            // 验证码初始化完毕时会被调用
+        },
+        onFailure: function(ret) {
+            var return_data = ret;
+            // ret格式{”code”:0,”message”:””}
+            // 验证失败时会被调用
+        }
+
+    };
+    var Jcap = whh.captcha(option,{tdat_version: 99992,host: "beta-jcap.m.jd.com"})
+    Jcap.create();
+    function reset() {
+        Jcap.reset(sid);
+    }
+
+</script>
+</body>
+
+</html>
